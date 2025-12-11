@@ -20,11 +20,7 @@ type BookingItem = {
 export default function HomePage() {
   const { user } = useAuth();
   const isPatient = user?.role === "PATIENT";
- const email = user?.email ?? "";
-
-const res = await fetch(
-  apiUrl(`/api/patients/bookings?email=${encodeURIComponent(email)}`)
-);
+  const email = user?.email ?? "";
 
   const [nextBooking, setNextBooking] = useState<BookingItem | null>(null);
   const [nextLoading, setNextLoading] = useState(false);
